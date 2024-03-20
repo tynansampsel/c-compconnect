@@ -1,10 +1,10 @@
 CC=gcc
-CFLAGS=-Wall -Wextra
+CFLAGS=-Iinclude/ -Wall -Wextra
 
 all: main
 
 main: main.c cookiejar.c cookieeater.c
-	$(CC) $(CFLAGS) -o -I $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 clean:
 	rm -f main
