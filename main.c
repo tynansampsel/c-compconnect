@@ -16,7 +16,7 @@ int main(void)
             side = answer - '0';
     } while (side == 0);
 
-    printf("picked %d", side);
+    printf("picked %d\n", side);
 
     if (side == 1){
         cookiejar();

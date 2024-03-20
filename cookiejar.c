@@ -87,8 +87,9 @@ int a_waitForMessage(char *requestIp){
 		printf("Could not get socket information!\n");
         return 1;
 	}
+    printf("someone asked for a cookie and said %s \n", recievedInfo);
     
-    printf("someone asked for a cookie!\n");
+    //printf("someone asked for a cookie!\n");
 
     char *requestIpResult = inet_ntop(their_addr.ss_family, a_get_in_addr((struct sockaddr *)&their_addr), pseudoRequestIp, INET6_ADDRSTRLEN);
     if (requestIpResult == NULL) {
