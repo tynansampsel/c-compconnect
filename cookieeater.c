@@ -18,17 +18,22 @@ int cookieeater(){
     
     char arg_ip[INET6_ADDRSTRLEN];
 	char arg_ip_raw[INET6_ADDRSTRLEN];
-	char arg_message_raw[20];
+	char arg_message_raw[21];
     
     printf("ip: ");
 	fgets(arg_ip_raw, INET6_ADDRSTRLEN, stdin);
 
     arg_ip_raw[strcspn(arg_ip_raw, "\n")] = '\0';
     strcpy(arg_ip, arg_ip_raw);
-    printf("sent message to... %s", arg_ip);
     
     printf("message (max of 20 characters): ");
-	fgets(arg_message_raw, 10, stdin);
+	fgets(arg_message_raw, 20, stdin);
+    
+    printf("%s\n", arg_message_raw);
+
+    printf("sent message to... %s\n", arg_ip);
+
+    printf("\n");
 
     b_sendMessage(arg_ip, arg_message_raw);
 
