@@ -24,6 +24,7 @@ int cookieeater(){
 	fgets(arg_ip_raw, INET6_ADDRSTRLEN, stdin);
 
     strcpy(arg_ip, arg_ip_raw);
+    printf("ip: %s", arg_ip);
     
     printf("message: ");
 	fgets(arg_message_raw, 10, stdin);
