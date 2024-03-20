@@ -28,8 +28,6 @@ int cookieeater(){
     
     printf("message (max of 20 characters): ");
 	fgets(arg_message_raw, 20, stdin);
-    
-    printf("%s\n", arg_message_raw);
 
     printf("sent message to... %s\n", arg_ip);
 
