@@ -16,15 +16,15 @@ void *get_in_addr(struct sockaddr *sa)
 
 int cookieeater(){
     
-    char arg_ip[];
+    char arg_ip[INET6_ADDRSTRLEN];
 	char arg_ip_raw[INET6_ADDRSTRLEN];
 	char arg_message_raw[10];
     
     printf("ip: ");
 	fgets(arg_ip_raw, INET6_ADDRSTRLEN, stdin);
 
-	arg_ip = arg_ip_raw;
-
+    strcpy(arg_ip, arg_ip_raw);
+    
     printf("message: ");
 	fgets(arg_message_raw, 10, stdin);
 
