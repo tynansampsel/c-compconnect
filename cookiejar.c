@@ -90,7 +90,7 @@ int a_waitForMessage(char *requestIp){
     
     printf("someone asked for a cookie!\n");
 
-    char *requestIpResult = inet_ntop(their_addr.ss_family, get_in_addr((struct sockaddr *)&their_addr), pseudoRequestIp, INET6_ADDRSTRLEN);
+    char *requestIpResult = inet_ntop(their_addr.ss_family, a_get_in_addr((struct sockaddr *)&their_addr), pseudoRequestIp, INET6_ADDRSTRLEN);
     if (requestIpResult == NULL) {
         printf("Could not get senders ip!\n");
         return 1;
