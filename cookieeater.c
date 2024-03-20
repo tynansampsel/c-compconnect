@@ -9,7 +9,7 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 
-void *get_in_addr(struct sockaddr *sa)
+void *b_get_in_addr(struct sockaddr *sa)
 {
 	return &(((struct sockaddr_in*)sa)->sin_addr);
 }
@@ -28,15 +28,15 @@ int cookieeater(){
     printf("message: ");
 	fgets(arg_message_raw, 10, stdin);
 
-    sendMessage(arg_ip, arg_message_raw);
+    b_sendMessage(arg_ip, arg_message_raw);
 
     char requestIp[INET6_ADDRSTRLEN];
-    waitForMessage(&requestIp);
+    b_waitForMessage(&requestIp);
 
     return 0;
 }
 
-int waitForMessage(char requestIp[]){
+int b_waitForMessage(char requestIp[]){
     printf("waiting for response...\n");
 	int numbytes;
 
@@ -86,7 +86,7 @@ int waitForMessage(char requestIp[]){
 }
 
 
-int sendMessage(char ip[], char message[]){
+int b_sendMessage(char ip[], char message[]){
     int sockfd;
     struct addrinfo addrinfoPrefs, *servinfo, *p;
 

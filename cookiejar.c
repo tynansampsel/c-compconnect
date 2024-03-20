@@ -10,7 +10,7 @@
 #include <netdb.h>
 
 
-void *get_in_addr(struct sockaddr *sa)
+void *a_get_in_addr(struct sockaddr *sa)
 {
 	return &(((struct sockaddr_in*)sa)->sin_addr);
 }
@@ -18,7 +18,7 @@ void *get_in_addr(struct sockaddr *sa)
 int cookiejar()
 {
     char requestIp[INET6_ADDRSTRLEN];
-    if (waitForMessage(requestIp) != 0) {
+    if (a_waitForMessage(requestIp) != 0) {
         fprintf(stderr, "Error occurred while waiting for message\n");
         return 1;
     }
@@ -39,7 +39,7 @@ int cookiejar()
 
     char *requestIpPtr = requestIp;
 
-    if (sendMessage(requestIpPtr, answer) != 0) {
+    if (a_sendMessage(requestIpPtr, answer) != 0) {
         fprintf(stderr, "Error occurred while sending message\n");
         return 1;
     }
@@ -49,7 +49,7 @@ int cookiejar()
 
 
 
-int waitForMessage(char *requestIp){
+int a_waitForMessage(char *requestIp){
     printf("waiting for for someone to ask...\n");
     int sockfd;
 	struct addrinfo addrinfoPrefs, *servinfo, *p;
@@ -103,7 +103,7 @@ int waitForMessage(char *requestIp){
     return 0;
 }
 
-int sendMessage(char ip[], char message[]){
+int a_sendMessage(char ip[], char message[]){
     int sockfd;
     struct addrinfo addrinfoPrefs, *servinfo, *p;
 
